@@ -1,0 +1,499 @@
+/* =====================================================
+   Adjuntos CF7 - InforCom — Frontend CSS
+   Modo: Solo claro
+   ===================================================== */
+
+:root {
+    --acf7i-drop-bg:           #FFFFFF;
+    --acf7i-drop-bg-hover:     #E8F7FF;
+    --acf7i-drop-border:       #07325A;
+    --acf7i-drop-border-hover: #00BCFF;
+    --acf7i-drop-radius:       12px;
+    --acf7i-drop-padding:      40px 24px;
+    --acf7i-celeste:           #00BCFF;
+    --acf7i-azul1:             #050018;
+    --acf7i-azul3:             #07325A;
+    --acf7i-rojo:              #FF3600;
+    --acf7i-amarillo:          #FFC700;
+    --acf7i-transition:        all 0.22s ease;
+}
+
+/* =====================
+   WRAP PRINCIPAL
+===================== */
+.acf7i-field-wrap {
+    width: 100%;
+    font-family: inherit;
+}
+
+/* =====================
+   ZONA DROP
+===================== */
+.acf7i-dropzone {
+    position: relative;
+    background: var(--acf7i-drop-bg);
+    border: 2px dashed var(--acf7i-drop-border);
+    border-radius: var(--acf7i-drop-radius);
+    padding: var(--acf7i-drop-padding);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--acf7i-transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 200px;
+    outline: none;
+}
+
+/* Hover / Focus */
+.acf7i-dropzone:hover,
+.acf7i-dropzone:focus {
+    background: var(--acf7i-drop-bg-hover);
+    border-color: var(--acf7i-drop-border-hover);
+    border-style: solid;
+}
+
+/* Arrastrando */
+.acf7i-dropzone.dragging {
+    background: rgba(0,188,255,0.06);
+    border-color: var(--acf7i-celeste);
+    border-style: solid;
+    transform: scale(1.005);
+}
+
+/* Error */
+.acf7i-dropzone.has-error {
+    background: rgba(255,54,0,0.04);
+    border-color: var(--acf7i-rojo);
+    border-style: solid;
+}
+
+/* Éxito */
+.acf7i-dropzone.has-files {
+    border-style: solid;
+    border-color: var(--acf7i-celeste);
+}
+
+/* Input file oculto */
+.acf7i-file-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* =====================
+   ÍCONO
+===================== */
+.acf7i-icon {
+    margin-bottom: 4px;
+    transition: var(--acf7i-transition);
+    z-index: 2;
+}
+
+.acf7i-icon-svg {
+    stroke: var(--acf7i-celeste);
+    display: block;
+}
+
+.acf7i-dropzone:hover .acf7i-icon-svg {
+    stroke: var(--acf7i-azul3);
+}
+
+/* =====================
+   TEXTOS
+===================== */
+.acf7i-text-main {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--acf7i-azul1);
+    margin: 0;
+    line-height: 1.3;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.acf7i-text-secondary {
+    font-size: 14px;
+    color: var(--acf7i-azul3);
+    opacity: 0.8;
+    margin: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.acf7i-text-limits {
+    font-size: 12px;
+    color: var(--acf7i-azul3);
+    opacity: 0.75;
+    margin: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.acf7i-text-types {
+    font-size: 12px;
+    color: #8A9BB0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.acf7i-types-prefix {
+    font-weight: 500;
+    color: #4A5568;
+    margin-right: 2px;
+}
+
+.acf7i-ext-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(0,188,255,0.10);
+    color: var(--acf7i-azul3);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.acf7i-ext-more {
+    background: rgba(7,50,90,0.08);
+    color: #4A5568;
+}
+
+/* =====================
+   BOTÓN SELECCIONAR
+===================== */
+.acf7i-select-btn {
+    background: var(--acf7i-celeste);
+    color: var(--acf7i-azul1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--acf7i-transition);
+    margin-top: 4px;
+    z-index: 3;
+    position: relative;
+    font-family: inherit;
+}
+
+.acf7i-select-btn:hover,
+.acf7i-select-btn:focus {
+    background: var(--acf7i-azul3);
+    color: #FFFFFF;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0,188,255,0.3);
+}
+
+/* =====================
+   LISTA DE ARCHIVOS
+===================== */
+.acf7i-files-list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* =====================
+   FICHA DE ARCHIVO
+===================== */
+.acf7i-file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #F8FBFF;
+    border: 1px solid #D0DCE8;
+    border-left: 3px solid var(--acf7i-celeste);
+    border-radius: 8px;
+    padding: 10px 14px;
+    transition: var(--acf7i-transition);
+    animation: acf7i-fadein-up 0.25s ease;
+}
+
+.acf7i-file-item:hover {
+    border-color: var(--acf7i-celeste);
+    box-shadow: 0 2px 8px rgba(0,188,255,0.1);
+}
+
+/* Ícono del tipo de archivo */
+.acf7i-file-type-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,188,255,0.08);
+    border-radius: 6px;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Info del archivo */
+.acf7i-file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.acf7i-file-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--acf7i-azul1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.acf7i-file-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 3px;
+}
+
+.acf7i-file-ext {
+    background: rgba(0,188,255,0.12);
+    color: var(--acf7i-azul3);
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.acf7i-file-size {
+    font-size: 11px;
+    color: #8A9BB0;
+}
+
+/* =====================
+   BARRA DE PROGRESO
+===================== */
+.acf7i-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 90px;
+}
+
+.acf7i-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: #E8F7FF;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.acf7i-progress-fill {
+    height: 100%;
+    background: var(--acf7i-celeste);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.acf7i-progress-fill.complete {
+    background: var(--acf7i-celeste);
+    width: 100% !important;
+}
+
+.acf7i-progress-fill.error {
+    background: var(--acf7i-rojo);
+}
+
+.acf7i-progress-pct {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--acf7i-celeste);
+    white-space: nowrap;
+    min-width: 32px;
+    text-align: right;
+}
+
+.acf7i-progress-pct.complete { color: var(--acf7i-celeste); }
+.acf7i-progress-pct.error    { color: var(--acf7i-rojo); }
+
+/* =====================
+   BOTÓN ELIMINAR ARCHIVO
+===================== */
+.acf7i-file-remove {
+    background: none;
+    border: none;
+    color: var(--acf7i-rojo);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 5px 7px;
+    border-radius: 5px;
+    transition: var(--acf7i-transition);
+    flex-shrink: 0;
+    line-height: 1;
+    font-family: inherit;
+}
+
+.acf7i-file-remove:hover {
+    background: rgba(255,54,0,0.08);
+    transform: scale(1.15);
+}
+
+/* =====================
+   MENSAJES DE ERROR
+===================== */
+.acf7i-errors-wrap {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.acf7i-error-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(255,54,0,0.06);
+    border-left: 3px solid var(--acf7i-rojo);
+    border-radius: 6px;
+    padding: 10px 14px;
+    animation: acf7i-fadein-up 0.2s ease;
+}
+
+.acf7i-error-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.acf7i-error-text {
+    flex: 1;
+    font-size: 13px;
+    color: var(--acf7i-azul1);
+    line-height: 1.45;
+}
+
+.acf7i-error-close {
+    background: none;
+    border: none;
+    color: var(--acf7i-rojo);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 2px 4px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: var(--acf7i-transition);
+    font-family: inherit;
+}
+
+.acf7i-error-close:hover {
+    background: rgba(255,54,0,0.12);
+}
+
+/* =====================
+   SUPRIMIR ERRORES CF7
+   en este campo únicamente
+===================== */
+.acf7i-field-wrap .wpcf7-not-valid-tip {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.acf7i-field-wrap ~ .wpcf7-not-valid-tip {
+    display: none !important;
+}
+
+/* =====================
+   ACCESIBILIDAD
+===================== */
+.acf7i-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.acf7i-dropzone:focus-visible {
+    outline: 3px solid var(--acf7i-celeste);
+    outline-offset: 3px;
+}
+
+.acf7i-select-btn:focus-visible {
+    outline: 3px solid var(--acf7i-azul3);
+    outline-offset: 2px;
+}
+
+/* =====================
+   ANIMACIONES
+===================== */
+@keyframes acf7i-fadein-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes acf7i-pulse-border {
+    0%, 100% { border-color: var(--acf7i-celeste); }
+    50%       { border-color: rgba(0,188,255,0.3); }
+}
+
+@keyframes acf7i-stripes {
+    from { background-position: 0 0; }
+    to   { background-position: 40px 0; }
+}
+
+.acf7i-progress-fill.uploading {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--acf7i-celeste) 0px,
+        var(--acf7i-celeste) 10px,
+        rgba(0,188,255,0.6) 10px,
+        rgba(0,188,255,0.6) 20px
+    );
+    background-size: 40px 40px;
+    animation: acf7i-stripes 0.6s linear infinite;
+}
+
+/* =====================
+   RESPONSIVO
+===================== */
+@media (max-width: 480px) {
+    .acf7i-dropzone {
+        padding: 28px 16px;
+        min-height: 160px;
+    }
+
+    .acf7i-text-main      { font-size: 15px; }
+    .acf7i-text-secondary { font-size: 13px; }
+
+    .acf7i-file-item {
+        flex-wrap: wrap;
+    }
+
+    .acf7i-progress-wrap {
+        width: 100%;
+        min-width: unset;
+    }
+}
